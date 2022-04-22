@@ -87,6 +87,13 @@
         {
           "filterType": "MAX_NUM_ALGO_ORDERS",
           "maxNumAlgoOrders": 5
+        },
+        {
+          "filterType": "TRAILING_DELTA",
+          "minTrailingAboveDelta": 10,
+          "maxTrailingAboveDelta": 2000,
+          "minTrailingBelowDelta": 10,
+          "maxTrailingBelowDelta": 2000
         }
       ],
       "permissions": [
@@ -158,6 +165,13 @@
         {
           "filterType": "MAX_NUM_ALGO_ORDERS",
           "maxNumAlgoOrders": 5
+        },
+        {
+          "filterType": "TRAILING_DELTA",
+          "minTrailingAboveDelta": 10,
+          "maxTrailingAboveDelta": 2000,
+          "minTrailingBelowDelta": 10,
+          "maxTrailingBelowDelta": 2000
         }
       ],
       "permissions": [
@@ -229,6 +243,13 @@
         {
           "filterType": "MAX_NUM_ALGO_ORDERS",
           "maxNumAlgoOrders": 5
+        },
+        {
+          "filterType": "TRAILING_DELTA",
+          "minTrailingAboveDelta": 10,
+          "maxTrailingAboveDelta": 2000,
+          "minTrailingBelowDelta": 10,
+          "maxTrailingBelowDelta": 2000
         }
       ],
       "permissions": [
@@ -236,5 +257,5 @@
         "MARGIN"
       ]
     }
- ]
+  ]
 }

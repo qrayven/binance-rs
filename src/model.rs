@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Deserialize, Clone)]
-pub struct Empty { }
+pub struct Empty {}
 
 #[derive(Serialize, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
@@ -96,6 +96,14 @@ pub enum Filters {
         min_qty: String,
         max_qty: String,
         step_size: String,
+    },
+    #[serde(rename = "TRAILING_DELTA")]
+    #[serde(rename_all = "camelCase")]
+    TrailingDeltaFilter {
+        min_trailing_above_delta: u64,
+        max_trailing_above_delta: u64,
+        min_trailing_below_delta: u64,
+        max_trailing_below_delta: u64,
     },
 }
 
@@ -223,10 +231,7 @@ pub struct Bids {
 
 impl Bids {
     pub fn new(price: f64, qty: f64) -> Bids {
-        Bids { 
-            price, 
-            qty,
-        }
+        Bids { price, qty }
     }
 }
 
@@ -814,7 +819,7 @@ pub(crate) mod string_or_float_opt {
     {
         match value {
             Some(v) => crate::model::string_or_float::serialize(v, serializer),
-            None => serializer.serialize_none()
+            None => serializer.serialize_none(),
         }
     }
 
@@ -829,6 +834,8 @@ pub(crate) mod string_or_float_opt {
             Float(f64),
         }
 
-        Ok(Some(crate::model::string_or_float::deserialize(deserializer)?))
+        Ok(Some(crate::model::string_or_float::deserialize(
+            deserializer,
+        )?))
     }
 }
